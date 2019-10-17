@@ -1,0 +1,33 @@
+<div style="text-align:center">
+  <h1>
+    The Ultimate Pokémon Type Database!
+  </h1>
+  <mat-form-field>
+    <mat-label>Pokemon type</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name ="pokemon">
+      <mat-option *ngFor="let pokemon of pokemen" [value]="pokemon.value">
+        {{pokemon.viewValue}}
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <p>{{selectedValue}}</p>
+  <h3>Strenghts</h3>
+  <ul *ngFor="let pokemon of pokemen">
+    <li *ngIf="selectedValue == pokemon.value">
+          {{pokemon.strengths}}
+    </li>
+  </ul>
+  <h3>Weakness</h3>
+  <ul *ngFor="let pokemon of pokemen">
+      <li *ngIf="selectedValue == pokemon.value">
+            {{pokemon.weakness}}
+      </li>
+    </ul>
+  <h3>Immunities</h3>
+  <ul *ngFor="let pokemon of pokemen">
+      <li *ngIf="selectedValue == pokemon.value">
+            {{pokemon.immunities}}
+      </li>
+    </ul>
+  </div>
